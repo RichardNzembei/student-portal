@@ -1,7 +1,8 @@
 <script setup>
-import loginCard from './components/loginCard.vue';
 
 </script>
 <template>
-  <loginCard/>
+ <div id="app">
+<router-view></router-view>
+ </div>
 </template>

@@ -1,17 +1,37 @@
 <script setup>
+import {ref} from 'vue'
+import { useRouter } from 'vue-router';
+const message=ref('login succesfull')
+const regNo=ref('')
+const password=ref('')
+const showPassword=ref(false)
+const router=useRouter()
+const login=()=>{
+  if(regNo.value==='cs/mg/3090/09/22' && password.value==='kabu@2024'){
+   alert('login successful')
+   router.push({name:'dashboardCard'})
+  }
+else{
+  alert('invalid creditials')
+}
+}
+const togglePassword=()=>{
+  showPassword.value=!showPassword.value
+}
 </script>
 <template>
   <div class="login-container">
     <div class="login-box">
       <img src="../assets/Kabarak_University_logo.jpeg" alt="" class="logo" />
       <h2>KABARAK UNIVERSITY</h2>
-      <form action="">
+      <form @submit.prevent="login">
         <div class="input-group">
           <label for="reg-number">Reg.Number</label>
           <input
             type="text"
             id="reg-number"
             name="reg-number"
+            v-model="regNo"
             placeholder="Reg. Number"
             required
           />
@@ -19,13 +39,14 @@
         <div class="input-group">
           <label for="password">password</label>
           <input
-            type="password"
+            :type="showPassword? 'text':'password'"
             id="password"
             name="password"
+            v-model="password"
             placeholder="password"
             required
           />
-          <span class="show-password" @click="togglePassword">👁️</span>
+          <span class="show-password" @click="togglePassword">{{ showPassword? '🙈' : '👁️' }}</span>
         </div><br>
         <div class="remember-me">
            <input type="checkbox" id="remember-me" name="remember-me">
