@@ -12,10 +12,10 @@ function toggleDropdown() {
       <input class="search" type="text" placeholder="Search..." />
       <div class="profile" @click="toggleDropdown">
         <span class="icon icon-profile"></span>
-        <span class="profile-name">REUBEN RICHARD NZEMBEI &#x25BC;</span>
+        <span class="profile-name">REUBEN RICHARD NZEMBEI <span class="icon icon-drop-arrow"></span></span>
         <div class="dropdown-menu" id="dropdownMenu" v-if="isDropdownVisible">
-          <a href="#" class="dropdown-item"> <span class="icon icon-user"></span>Profile</a>
-          <a href="#" class="dropdown-item"> <span class="icon icon-logout"></span>Logout</a>
+          <a href="#" class="dropdown-item"> <span class="icon icon-user"></span> <span class="dropdown-itemA">Profile</span></a>
+          <a href="#" class="dropdown-item"> <span class="icon icon-logout"></span> <span class="dropdown-itemA">Logout</span></a>
         </div>
       </div>
     </div>
@@ -148,11 +148,32 @@ h3 {
 }
 .icon-user{
     background-image: url("../assets/img/user.png");
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 3px;;
 }
 .icon-logout{
-  background-image: url("../assets/img/");
+  background-image: url("../assets/img/logout.png");
+  width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-
+.icon-drop-arrow{
+  background-image: url("../assets/img/down-arrow.png");
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 /* Dashboard Container */
 .dashboard-container {
   padding: 20px;
@@ -226,7 +247,11 @@ h3 {
   display: block;
   color: white; /* Text color */
 }
-
+.dropdown-itemA{
+  margin: 5px 10px ;
+  position: relative;
+  top: -4px;
+}
 .dropdown-item:hover {
   background-color: #3b6b77; /* Hover effect */
 }

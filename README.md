@@ -9,8 +9,10 @@ password:kabu@2024
 # Link
 Visit:[Kabu Portal](https://student-portal-66qh.onrender.com/)
 
-# UI Screenshot
-![Kabu Portal UI](./kabu-portal-makeover/src/assets/img/UI.png)
+# Login Screenshot
+![Login Page UI](./kabu-portal-makeover/src/assets/img/Login.png)
+# Dashboard Screenshot
+![dashboard UI](./kabu-portal-makeover/src/assets/img/dashboard.png)
 
 # Key concepts
 1.vue routing ,,to handle navigation between views
