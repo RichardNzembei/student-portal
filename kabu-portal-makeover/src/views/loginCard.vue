@@ -20,6 +20,7 @@ const togglePassword=()=>{
 }
 </script>
 <template>
+<div class="login-body">
   <div class="login-container">
     <div class="login-box">
       <img src="../assets/Kabarak_University_logo.jpeg" alt="" class="logo" />
@@ -60,8 +61,19 @@ const togglePassword=()=>{
       </footer>
     </div>
   </div>
+</div>
+ 
 </template>
 <style scoped>
+.login-body {
+  background: linear-gradient(to right, #a19267 50%, #a37d56 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 .login-container{
     justify-content: center;
     display: flex;
