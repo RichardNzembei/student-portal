@@ -14,7 +14,7 @@ function toggleDropdown() {
         <span class="icon icon-profile"></span>
         <span class="profile-name">REUBEN RICHARD NZEMBEI &#x25BC;</span>
         <div class="dropdown-menu" id="dropdownMenu" v-if="isDropdownVisible">
-          <a href="#" class="dropdown-item"> <span class="icon icon-profile-icon"></span>Profile</a>
+          <a href="#" class="dropdown-item"> <span class="icon icon-profile"></span>Profile</a>
           <a href="#" class="dropdown-item"> <span class="icon icon-logout"></span>Logout</a>
         </div>
       </div>
@@ -146,15 +146,26 @@ h3 {
   border-radius: 50%;
   margin-right: 10px;
 }
-
-.icon-profile-icon {
-  width: 40px;
-  height: 40px;
-  background-image: url("../assets/img/");
-  background-size: cover;
-  border-radius: 50%;
-  margin-right: 10px;
+.icon-profile {
+    background-image: url("../assets/img/profile.png");
+    width: 24px;  /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    display: inline-block;
+    background-size: contain; /* Ensures the image fits the span */
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+.icon-logout {
+    background-image: url("../assets/img/UI.png");
+    width: 24px;  /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    display: inline-block;
+    background-size: contain; /* Ensures the image fits the span */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 /* Dashboard Container */
 .dashboard-container {
   padding: 20px;
