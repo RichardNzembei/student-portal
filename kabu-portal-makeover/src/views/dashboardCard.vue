@@ -48,14 +48,14 @@ function toggleDropdown(){
         <div class="section academic-info">
             <h3>Academic Information</h3>
             <p><strong>Current Programme:</strong> BACHELOR OF SCIENCE IN COMPUTER SCIENCE</p>
-            <p><strong>Attempted Units:</strong> 36</p>
+            <p><strong>Attempted Units:</strong> 43</p>
             <p><strong>Registered Units:</strong> 0</p>
         </div>
 
         <div class="section fee-payment">
             <h3>Fee Payment</h3>
-            <p><strong>Total Billed:</strong> 193,725.00</p>
-            <p><strong>Total Paid:</strong> 193,725.00</p>
+            <p><strong>Total Billed:</strong> </p>
+            <p><strong>Total Paid:</strong> </p>
             <p><strong>Fee Balance:</strong> 0.00</p>
         </div>
     </div>
