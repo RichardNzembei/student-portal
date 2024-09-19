@@ -147,7 +147,10 @@ h3 {
   margin-right: 10px;
 }
 .icon-user{
-    background-image: url("../assets/img/profile.png");
+    background-image: url("../assets/img/user.png");
+}
+.icon-logout{
+  background-image: url("../assets/img/");
 }
 
 /* Dashboard Container */
