@@ -1,0 +1,32 @@
+{
+  "students": [
+    {
+      "reg_no": "CS/MG/3090/09/22",
+      "name": "REUBEN RICHARD NZEMBEI",
+      "id_no": 41333380,
+      "gender": "Male",
+      "address": "263",
+      "email": "richardsonreuben78@gmail.com",
+      "date_of_birth": "2004-01-11",
+      "campus": "MAIN",
+      "password": "kabu@2024",
+      "profile":"richieProfile.jpg"
+    },
+    {
+      "reg_no": "CLM/M/0794/09/23",
+      "name": "BRIAN KARIGI",
+      "id_no": 631800281,
+      "gender": "Male",
+      "address": "P O BOX 10-60215",
+      "email": "briankarigi@kabarak.ac.ke",
+      "date_of_birth": "2005-12-20",
+      "campus": "MAIN",
+      "password": "kabu@2024",
+      "profile":"richieProfile.jpg"
+
+    }
+  ]
+ 
+}
+
+  

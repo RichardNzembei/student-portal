@@ -3,8 +3,12 @@ using vue js to integrate the kabarak university portal
 
 # Testing
 use this user data to test login
-regNo:cs/mg/3090/09/22
-password:kabu@2024
+ <u>**student 1**</u> 
+(regNo:)cs/mg/3090/09/22
+(password:)kabu@2024
+  <u>**student 2**</u> 
+(regNo:):CLM/M/0794/09/23
+(password:)kabu@2024
 
 # Link
 Visit:[Kabu Portal](https://student-portal-66qh.onrender.com/)

@@ -1,20 +1,50 @@
 <script setup>
 import {ref} from 'vue'
 import { useRouter } from 'vue-router';
-const message=ref('login succesfull')
-const regNo=ref('')
-const password=ref('')
-const showPassword=ref(false)
-const router=useRouter()
-const login=()=>{
-  if(regNo.value==='cs/mg/3090/09/22' && password.value==='kabu@2024'){
-   alert('login successful')
-   router.push({name:'dashboardCard'})
+
+const message = ref('');
+const regNo = ref('');
+const password = ref('');
+const showPassword = ref(false);
+const router = useRouter();
+
+const fetchStudentData = async () => {
+  try {
+    const response = await fetch('/students.json'); 
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data.students;
+  } catch (error) {
+    console.error('Error fetching student data:', error);
+    message.value = 'Error fetching student data. Please try again later.';
+    return [];
   }
-else{
-  alert('invalid creditials')
-}
-}
+};
+
+const login = async () => {
+  if (!regNo.value || !password.value) {
+    alert('Please enter both registration number and password.');
+    return;
+  }
+
+  const students = await fetchStudentData();
+  const student = students.find(s => 
+  s.reg_no.toLowerCase() === regNo.value.toLowerCase() && 
+  s.password === password.value
+);
+
+if (student) {
+  alert('Login successful');
+  console.log(student);
+  localStorage.setItem('studentData', JSON.stringify(student));
+  router.push({ name: 'dashboardCard' });
+} else {
+  alert( 'Invalid credentials. Please try again.');
+  }
+};
+
 const togglePassword=()=>{
   showPassword.value=!showPassword.value
 }
@@ -66,7 +96,9 @@ const togglePassword=()=>{
 </template>
 <style scoped>
 .login-body {
-  background: linear-gradient(to right, #a19267 50%, #a37d56 50%);
+  
+  background-color: red; 
+  background-image: linear-gradient(to right, rgb(243, 136, 13), rgb(180, 180, 124));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,20 +122,20 @@ const togglePassword=()=>{
     width: 350px;
 }
 
-/* Logo */
+
 .logo {
     width: 100px;
     margin-bottom: 10px;
     border-radius: 10px;
 }
 
-/* Heading */
+
 h2 {
     color: #ffffff;
     margin: 10px 0;
 }
 
-/* Input Groups */
+
 .input-group {
     margin: 15px 10px;
     position: relative;
@@ -125,7 +157,6 @@ input[type="password"] {
     border-radius: 4px;
 }
 
-/* Show Password Icon */
 .show-password {
     position: absolute;
     right: 4px;
@@ -134,7 +165,6 @@ input[type="password"] {
     color: #a87070;
 }
 
-/* Remember Me */
 .remember-me {
     display: flex;
     align-items: center;
@@ -147,7 +177,6 @@ input[type="password"] {
     margin-right: 5px;
 }
 
-/* Login Button */
 .login-btn {
     background-color: #00bfff;
     color: #ffffff;
@@ -162,7 +191,6 @@ input[type="password"] {
     background-color: #0080ff;
 }
 
-/* Forgot Password Link */
 .forgot-password {
     display: block;
     margin-top: 10px;
@@ -175,7 +203,6 @@ input[type="password"] {
     text-decoration: underline;
 }
 
-/* Footer */
 footer {
     margin-top: 20px;
     color: #ffffff;

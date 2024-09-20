@@ -1,8 +1,19 @@
 <script setup>
+
 import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 const isDropdownVisible = ref(false);
 function toggleDropdown() {
   isDropdownVisible.value = !isDropdownVisible.value;
+}
+const router=useRouter()
+const route=useRoute()
+const studentData = localStorage.getItem('studentData')
+      ? JSON.parse(localStorage.getItem('studentData'))
+      : null; // Parse the student data from localStorage
+
+const logout=()=>{
+  router.push({name:'loginCard'})
 }
 </script>
 <template>
@@ -10,12 +21,13 @@ function toggleDropdown() {
     <h2>Dashboard</h2>
     <div class="search-profile">
       <input class="search" type="text" placeholder="Search..." />
+      <span class="icon icon-search"></span>
       <div class="profile" @click="toggleDropdown">
         <span class="icon icon-profile"></span>
-        <span class="profile-name">REUBEN RICHARD NZEMBEI <span class="icon icon-drop-arrow"></span></span>
+        <span class="profile-name">{{ studentData.name }} <span class="icon icon-drop-arrow"></span></span>
         <div class="dropdown-menu" id="dropdownMenu" v-if="isDropdownVisible">
           <a href="#" class="dropdown-item"> <span class="icon icon-user"></span> <span class="dropdown-itemA">Profile</span></a>
-          <a href="#" class="dropdown-item"> <span class="icon icon-logout"></span> <span class="dropdown-itemA">Logout</span></a>
+          <a href="#" class="dropdown-item"> <span class="icon icon-logout"></span> <span class="dropdown-itemA" @click="logout">Logout</span></a>
         </div>
       </div>
     </div>
@@ -27,35 +39,35 @@ function toggleDropdown() {
         <h3>Basic Information</h3>
       </div>
 
-      <div class="info-content">
+      <div class="info-content" v-if="studentData">
         <div class="profile-pic">
           <img src="../assets/img/profile.png" alt="Profile Picture" />
         </div>
         <div class="info-details">
           <p>
             <strong class="info-label">Reg. No    </strong>
-            <span class="info-data">CS/MG/3090/09/22</span>
+            <span class="info-data">{{ studentData.reg_no }}</span>
           </p>
           <p>
             <strong class="info-label">Name  </strong>
 
-            <span class="info-data">REUBEN RICHARD NZEMBEI</span>
+            <span class="info-data">{{ studentData.name }}</span>
           </p>
-          <p><strong class="info-label">ID No </strong> <span class="info-data">41333380</span></p>
-          <p><strong class="info-label">Gender </strong> <span class="info-data">Male</span></p>
+          <p><strong class="info-label">ID No </strong> <span class="info-data">{{ studentData.id_no }}</span></p>
+          <p><strong class="info-label">Gender </strong> <span class="info-data">{{ studentData.gender }}</span></p>
           <button class="btn-red">Get Catering Token</button>
         </div>
         <div class="info-details">
-          <p><strong class="info-label">Address </strong> <span class="info-data">263</span></p>
+          <p><strong class="info-label">Address </strong> <span class="info-data">{{ studentData.address }}</span></p>
           <p>
             <strong class="info-label">Email </strong>
-            <span class="info-data">richardsonreuben78@gmail.com</span>
+            <span class="info-data">{{ studentData.email }}</span>
           </p>
           <p>
             <strong class="info-label">Date Of Birth </strong>
-            <span class="info-data">11/01/2004</span>
+            <span class="info-data">{{ studentData.date_of_birth }}</span>
           </p>
-          <p><strong class="info-label">Campus </strong> <span class="info-data">MAIN</span></p>
+          <p><strong class="info-label">Campus </strong> <span class="info-data">{{ studentData.campus }}</span></p>
           <button class="btn-green">Get Academic Calendar</button>
         </div>
       </div>
@@ -131,6 +143,17 @@ h3 {
   color: white;
   background-color: #b9d3b9;
 }
+.icon-search {
+  position: relative;
+  right: 60px;
+  top: 8px;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background-image: url("../assets/img/search.png"); /* Replace with your search icon */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
 .profile {
   display: flex;
@@ -193,10 +216,12 @@ h3 {
   
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   margin-top: 20px; /* Space at the top */
+ 
 }
 .info-content {
   display: flex;
   justify-content: space-between;
+ 
 }
 
 .profile-pic img {
@@ -204,6 +229,7 @@ h3 {
   height: 100px;
   border-radius: 50%;
   margin-top: 40px;
+  border-bottom: 1px solid black;
 }
 
 /* Buttons */
@@ -230,7 +256,7 @@ h3 {
 .dropdown-menu {
   display: block;
   position: absolute;
-  background-color: rgb(150, 158, 163); /* Background color for dropdown */
+  background-color: rgb(101, 109, 114); /* Background color for dropdown */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 5px;
   right: 0; /* Align to the right */
@@ -253,7 +279,7 @@ h3 {
   top: -4px;
 }
 .dropdown-item:hover {
-  background-color: #3b6b77; /* Hover effect */
+  background-color: #12596b; /* Hover effect */
 }
 .category {
   background-color: rgb(139, 137, 12);
@@ -281,6 +307,7 @@ h3 {
 .info-details {
   flex: 1; /* Allows the details sections to grow */
   padding: 30px ; /* Inner padding */
+  border-bottom: 1px solid black;
 }
 .info-label{
     display: inline-block;
