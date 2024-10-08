@@ -34,5 +34,6 @@ Visit:[Kabu Portal](https://student-portal-66qh.onrender.com/)
 7.students details ,,using JSON file<br>
 8.fetching data using **Fetch API**  <br>
 9.student data storage using **local storage**<br>
+10.styling-**Tailwind**
 
    
