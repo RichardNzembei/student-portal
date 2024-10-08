@@ -18,136 +18,64 @@ const navToProfile = () => {
 };
 </script>
 <template>
-  <div class="navbar">
-    <h2>Dashboard</h2>
-    <div class="search-profile">
-      <input class="search" type="text" placeholder="Search..." />
-      <span class="icon icon-search"></span>
-      <div class="profile" @click="toggleDropdown">
-        <span class="icon icon-profile"></span>
-        <span class="profile-name"
-          >{{ studentData.name }}  <span class="icon icon-drop-arrow"></span
-        ></span>
-        <div class="dropdown-menu" id="dropdownMenu" v-if="isDropdownVisible">
-          <a href="#" class="dropdown-item">
-            <span class="icon icon-user"></span>
-            <span class="dropdown-itemA" @click="navToProfile">Profile</span></a
+  <div class="bg-green-600 text-white p-4 flex justify-between items-center sticky top-0 z-50">
+   
+    <span class="h-8 w-8"><img src="../assets/img/menuicon.png" alt=""></span>
+  
+    <div class="flex items-center">
+     
+      <div class="relative">
+        <input
+          class="rounded-full px-4 py-2 bg-green-300 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-200  w-40  lg:w-full"
+          type="text"
+          placeholder="Search..."
+        />
+        <span class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4">
+          <img src="../assets/img/search.png" alt="search-icon" class="w-full h-full object-contain" />
+        </span>
+      </div>
+
+     
+      <div class="relative ml-6" @click="toggleDropdown">
+        <div class="flex items-center cursor-pointer">
+          
+          <span class="w-10 h-10 bg-cover bg-center rounded-full overflow-hidden">
+            <img src="../assets/img/profile.png" alt="profile-pic" class="w-full h-full object-cover" />
+          </span>
+          
+          
+          <span class="ml-2 text-white hidden lg:block">{{ studentData.name }}</span>
+
+        
+          <span class="ml-2 w-3 h-3">
+            <img src="../assets/img/down-arrow.png" alt="dropdown-arrow" class="w-full h-full object-contain" />
+          </span>
+        </div>
+
+        
+        <div v-if="isDropdownVisible" class="absolute right-0 mt-2 w-48 bg-white text-black rounded shadow-lg z-50">
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 hover:bg-gray-700 transition duration-150"
+            @click="navToProfile"
           >
-          <a href="#" class="dropdown-item" @click="logout">
-            <span class="icon icon-logout"></span>
-            <span class="dropdown-itemA">Logout</span></a
+            <span class="w-5 h-5 mr-2">
+              <img src="../assets/img/user.png" alt="user-icon" class="w-full h-full object-contain" />
+            </span>
+            Profile
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 hover:bg-gray-700 transition duration-150"
+            @click="logout"
           >
+            <span class="w-6 h-6 mr-2">
+              <img src="../assets/img/logouticon.png" alt="logout-icon" class="w-full h-full object-contain" />
+            </span>
+            Logout
+          </a>
         </div>
       </div>
     </div>
   </div>
 </template>
-<style scoped>
-.navbar {
-  background-color: #61aa61;
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.search-profile {
-  display: flex;
-  align-items: center;
-}
-
-.search {
-  border-radius: 20px;
-  padding: 10px;
-  border: none;
-  margin-right: 20px;
-  color: white;
-  background-color: #b9d3b9;
-}
-.icon-search {
-  position: relative;
-  right: 60px;
-  top: 8px;
-  transform: translateY(-50%);
-  width: 15px;
-  height: 15px;
-  background-image: url("../assets/img/search.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.profile {
-  display: flex;
-  align-items: center;
-  color: white;
-}
-
-.icon-profile {
-  width: 40px;
-  height: 40px;
-  background-image: url("../assets/img/profile.png");
-  background-size: cover;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.icon-user {
-  background-image: url("../assets/img/user.png");
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 3px;
-}
-.icon-logout {
-  background-image: url("../assets/img/logout.png");
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.icon-drop-arrow {
-  background-image: url("../assets/img/down-arrow.png");
-  width: 13px;
-  height: 13px;
-  display: inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 0 4px;
-}
-.dropdown-menu {
-  display: block;
-  position: absolute;
-  background-color: rgb(101, 109, 114);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 15px;
-  right: 0;
-  min-width: 150px;
-  border-radius: 4px;
-  z-index: 1000;
-  top: 45px;
-}
-
-.dropdown-item {
-  padding: 10px;
-  text-decoration: none;
-  display: block;
-  color: white;
-}
-.dropdown-itemA {
-  margin: 5px 10px;
-  position: relative;
-  top: -4px;
-}
-.dropdown-item:hover {
-  background-color: #12596b;
-}
-</style>
