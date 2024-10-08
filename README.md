@@ -14,7 +14,7 @@ password:kabu@2024<br>
 Visit:[Kabu Portal](https://student-portal-66qh.onrender.com/)
 
 # Login Screenshot
-![Login Page UI](./kabu-portal-makeover/src/assets/img/Login.png)
+![Login Page UI](./kabu-portal-makeover/src/assets/img/login.png)
 # Dashboard Screenshot
 ![dashboard UI](./kabu-portal-makeover/src/assets/img/dashboard.png)
 
