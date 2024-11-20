@@ -27,6 +27,20 @@
       "profile": "richieProfile.jpg",
       "major": "BACHELOR OF MEDICINE IN CLINICAL MEDICINE",
       "attemptedUnits": "23"
+    },
+    {
+      "reg_no": "CLM/M/0784/09/23",
+      "name": "DOREEN CHELULE",
+      "id_no": 631800256,
+      "gender": "female",
+      "address": "P O BOX 10-60215",
+      "email":"doreenchelule@kabarak.ac.ke",
+      "date_of_birth": "2005-06-20",
+      "campus": "MAIN",
+      "password": "kabu@2024",
+      "profile": "richieProfile.jpg",
+      "major": "BACHELOR OF MEDICINE IN CLINICAL MEDICINE",
+      "attemptedUnits": "23"
     }
   ]
 }
